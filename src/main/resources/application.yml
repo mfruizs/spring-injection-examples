@@ -1,0 +1,9 @@
+# Services URL
+spring:
+  main:
+    allow-bean-definition-overriding: true
+
+service:
+  optional:
+    enabled: true
+
