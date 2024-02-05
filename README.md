@@ -49,6 +49,8 @@ public class FinalService {
 ```
 ## Listing an implementation methods from one interface
 
+> When we load a list of interfaces, what we will get is a list of all the implementations created for that interface
+
 * **GET** - http://localhost:8080/api/interfaces/A
 * **GET** - http://localhost:8080/api/interfaces/B
 
