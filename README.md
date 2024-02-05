@@ -5,6 +5,8 @@ Example project to show the various ways we have to inject packages in the conte
 ## Autowired
 > In Spring Boot, the @Autowired annotation is used for dependency injection. When placed on a field, a setter method, or a constructor, Spring will automatically search for an instance of the corresponding class and inject it into that field, method, or constructor during bean initialization.
 
+* **GET** - http://localhost:8080/api/autowired
+
 ```java
 @Service
 public class AutowiredService {
@@ -16,6 +18,8 @@ public class AutowiredService {
 ```
 
 ## Create a new instance
+
+* **GET** - http://localhost:8080/api/created
 
 ```java
 @Service
@@ -32,6 +36,8 @@ public class CreateInstanceService {
 
 ## Using lombok with final modifier
 
+* **GET** - http://localhost:8080/api/final
+
 ```java
 @Service
 @RequiredArgsConstructor
@@ -42,6 +48,10 @@ public class FinalService {
 }
 ```
 ## Listing an implementation methods from one interface
+
+* **GET** - http://localhost:8080/api/interfaces/A
+* **GET** - http://localhost:8080/api/interfaces/B
+
 ```java
 @Service
 @RequiredArgsConstructor
@@ -55,6 +65,8 @@ public class MainInterfaceService {
 
 > In this case, `OptionalService` is conditioned to a property `service.optional.enabled` indicating that a class must be loaded, otherwise, 
 > the context would not have the class loaded and would be null.
+
+* **GET** - http://localhost:8080/api/optional
 
 ```java
 @Service

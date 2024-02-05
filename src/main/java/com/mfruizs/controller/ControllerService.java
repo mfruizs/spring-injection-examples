@@ -6,13 +6,14 @@ import com.mfruizs.service.createinstance.CreateInstanceService;
 import com.mfruizs.service.finalaccessmodifier.FinalService;
 import com.mfruizs.service.interfaces.MainInterfaceService;
 import com.mfruizs.service.optional.MainOptionalService;
+import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @Tag(name = "Endpoint Controller")
@@ -49,8 +50,10 @@ public class ControllerService {
 		return new ResponseEntity<>("final: " + response, HttpStatus.OK);
 	}
 
-	@GetMapping("/interfaces")
-	public ResponseEntity<String> recoverResponseFromInterfaceService(@RequestParam(value = "selector") InterfaceSelector selector) {
+
+	@GetMapping("/interfaces/{selector}")
+	public ResponseEntity<String> recoverResponseFromInterfaceService(@Parameter(description = "Interface", example = "A")
+																	  @PathVariable  final InterfaceSelector selector) {
 
 		String response = mainInterfaceService.getDescriptionFromSelectedService(selector);
 		return new ResponseEntity<>("interfaces: " + response, HttpStatus.OK);
